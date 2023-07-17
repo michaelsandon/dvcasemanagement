@@ -1,0 +1,16 @@
+{% if case['id'] >0 %}
+  <div class="border-bottom row" style="margin-bottom:16px; padding-bottom:8px">
+    <div class="col-9">
+       <h4 style="margin-bottom:4px">{{case['title']}}</h4>
+      <div>
+        <b>Date: </b>{{case['incidentDate']}}
+      </div>
+      <div>
+        <b>Location: </b>{{case['location']}}
+      </div>
+    </div>
+    <div class="col-3">
+      <a class = "btn outline-dark" href="cases/{{case['id']}}">View Details</a>       
+    </div>
+  </div>
+{% endif %}

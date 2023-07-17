@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGBFBFtRWx6jYIc_4BORyipbC37UTSATk&callback=initMap"
+    type="text/javascript"></script>
+    <script type="text/javascript">
+    function initMap() {
+        new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -31.8838752,lng: 115.8426928},
+            zoom: 16
+          });
+    }
+    </script>
+  </head>
+  <body>
+    {% include 'header.html'%}
+    <h1> Support: </h1>
+    <h4> Report an Incident </h4>
+    <p> Submit the form below to report an incident </p>
+    <form class="w-75 m-auto" action="/support/incidentreported" method="post">
+      <div class="mb-3">
+        <label for="formReportTitle" class="form-label">Title</label>
+        <input type="text" class="form-control" id="formReportTitle" placeholder="Short title" name= "formReportTitle">
+      </div>
+      <div class="mb-3">
+        <label for="formReportLocation" class="form-label">Location</label>
+        <input type="text" class="form-control" id="formReportLocation" placeholder="Country state suburb" name= "formReportLocation">
+      </div>
+      <div class="mb-3">
+        <label for="formReportIncidentDate" class="form-label">Location</label>
+        <input type="date" class="form-control" id="formReportIncidentDate" placeholder="" name="formReportIncidentDate">
+      </div>
+      <div class="mb-3">
+        <label for="formReportDetails" class="form-label">Incident Details</label>
+        <textarea class="form-control" id="formReportDetails" placeholder="add report details" name="formReportDetails"></textarea>
+      </div>
+      <div class="mb-3">
+        <input type="submit" class="btn btn-primary mb-3">
+      </div>
+    </form>
+
+    <h2> Safehouse Locations </h2>
+    <div id="map" style="width:100%; height:500px;"></div>
+    {% include 'footer.html'%}
+  </body>
+</html>
